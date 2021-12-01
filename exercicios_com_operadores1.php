@@ -25,21 +25,21 @@
 <?php $c = 20; ?>
 
 <?php echo $c; ?>
-<?php echo '<br/>'; ?>
+<br/>
 <?php echo ++$c; ?>
-<?php echo '<br/>'; ?>
-<?php echo '<br/>'; ?>
+<br/>
+<br/>
 
 <?php echo "3 - 'd' é igual a 100, 'e' é igual a 250, 'f' é igual a 'd' mais 'e'.<br/>"; ?>
 <?php echo "print 'f' e depois acrescente mais uma unidade a 'f' e apresente novamente."; ?>
-<?php echo '<br/>'; ?>
+<br/>
 <?php $d = 100; ?>
 <?php $e = 250; ?>
 <?php $f = $d + $e; ?>
 <?php echo $f; ?>
-<?php echo '<br/>'; ?>
+<br/>
 <?php echo ++$f; ?>
-<?php echo '<br/>'; ?>
+<br/>
 
     
 
