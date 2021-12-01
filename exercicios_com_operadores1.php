@@ -16,8 +16,8 @@
 <?php $b = $a * 3; ?>
 
 <?php echo $b; ?>
-<?php echo '<br/>'; ?>
-<?php echo '<br/>'; ?>
+<br/>
+<br/>
 
 <?php echo "2 - 'c' é iniiado e apresentado com o valor 20.<br/>"; ?>
 <?php echo "na instrução seguinte, 'c' dverá ser apresentado co o valor 21.<br/>"; ?>
