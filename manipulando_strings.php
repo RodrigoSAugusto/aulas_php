@@ -41,6 +41,42 @@
     
     <?php echo "O substr() retorna os caracteres a partir de uma posição especificada e por uma quantidade especifica de caracteres"; ?> <br/>
     <?php echo 'substr($frase, 0, 4) -> ' . $primeira_palavra = substr($frase, 0, 4); ?><br/>
+    <br/>
+    <?php echo "O strtoupper() converte as letras em maiúsculas."; ?> <br/>
+    <?php echo 'strtoupper($frase) -> ' . $todas_maiusculas = strtoupper($frase); ?><br/>
+    <br/>
+    <?php echo "O strtolower() converte as letras em minúsculas."; ?> <br/>
+    <?php echo 'strtolower($frase) -> ' . $todas_minusculas = strtolower($frase); ?><br/>
+    <br/>
+    <?php echo "O str_replace() substitui uma letra por outra."; ?> <br/>
+    <?php echo "str_replace('a', 'x', \$frase) -> " . $troca_letras = str_replace('a', 'x', $frase); ?><br/>
+    <br/>
+    <?php echo "O strpos() verifica qual a posição do caracter dentro da string."; ?> <br/>
+    <?php echo "strpos(\$frase, 'a') -> " . $Posicao_letra = strpos($frase, 'a'); ?><br/>
+
+    <p>No PHP 8 foram introduzidas mais algumas funções para usar com strings.</p><br/>
+    <?php echo 'str_contains()'?><br/>
+    <br/>
+    <?php $name = "Rodrigo da Silva Augusto" ?><br/>
+    <?php echo '$name = "Rodrigo da Silva Augusto"' ?><br/>
+    <?php $name_contain = str_contains($name, 'Silva');  ?><br/>
+    <?php echo '$name_contain = str_contains($name, \'Silva\') -> true' ?><br/>
+    <br/>
+    <?php echo 'str_starts_with()'?><br/>
+    <br/>
+    <?php echo '$name = "Rodrigo da Silva Augusto"' ?><br/>
+    <?php $name_start = str_starts_with($name, 'Rod');  ?><br/>
+    <?php echo '$name_start =str_starts_with($name, \'Rod\') -> true' ?><br/>
+    <?php echo '$name_start =str_starts_with($name, \'rod\') -> false' ?><br/>
+    <br/>
+    <?php echo 'str_ends_with()'?><br/>
+    <br/>
+    <?php echo '$name = "Rodrigo da Silva Augusto"' ?><br/>
+    <?php $name_ends = str_ends_with($name, 'sto');  ?><br/>
+    <?php echo '$name_start =str_ends_with($name, \'sto\') -> true' ?><br/>
+    <?php echo '$name_start =str_ends_with($name, \' sto\') -> false' ?><br/>
+    
+    
 
 </body>
 </html>
