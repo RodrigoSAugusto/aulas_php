@@ -29,16 +29,42 @@
     <br/>
     <?php echo ' echo $valores[0] retornará o valor "1"'; ?><br/>
     <?php echo 'echo $nomes[1] retornara o valor "ana"'; ?><br/>
-    <p>Lembrando que o índice de um array começa em '0'.</p>
+    <p>Lembrando que o índice de um array começa em '0'.</p><br/>
+    <br/>
 
+    <p>Formas de inserir dados no array.</p><br/>
     <?php $dados = [
         10 => 1000,
         20 => 2000,
         30 => 3000,
     ]; ?>
-    <?php $dados[] = 4000; ?>
-    <?php echo $dados[31]; ?>
+    <?php $dados[] = 4000; ?><br/>
 
+    <?php $dados[1] = 2001; # $dados = [1000, 2001, 3000, 4000] ?><br/>
+    <?php array_push($dados, 5000); # $dados = [1000, 2001, 3000, 4000, 5000] ?><br/>
+    <br/>
+    <br/>
+    <h3>ARRAYS MULTIDIMENCIONAIS</h3>
+    <br/>
+    <p>São arrays numéricos ou associativos, cujos valores são outros arrays.</p>
     
+    <?php $dados = [
+        [10, 20, 30, 40],
+        [100, 200, 300, 400],
+        [1000, 2000, 3000, 4000]
+    ];
+    echo $dados[1][2].'<br/>'; #300
+    echo $dados[0][1].'<br/>'; #20
+    
+    $cidades = [
+        'brasil' => ['curitiba', 'são paulo', 'salvador'],
+        'canada' => ['toronto', 'new brusiwinsk', 'alberta'],
+        'japao' => ['toquio', 'okinawa', 'fukushima']
+    ];
+
+    echo $cidades['japao'][1].'<br/>'; #okinawa
+    echo $cidades['canada'][1].'<br/>'; #new brusiwinsk
+
+    ?>
 </body>
 </html>
