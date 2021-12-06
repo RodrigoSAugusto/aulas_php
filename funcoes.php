@@ -72,7 +72,7 @@
         escreve();
     }
     function escreve() {
-        echo "Esta botão escreve algo ao ser clicado";
+        echo "Este botão escreve algo ao ser clicado";
         
     }
     ?>
