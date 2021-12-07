@@ -41,7 +41,7 @@
     <p>PROPRIEDADES - São variáveis que guardam as característivas do objeto.</p>
     <p>MÉTODOS - São funções  que definem o que o objeto pode fazer.</p>
     <p>As propriedades podem ter níveis diferentes de acesso.</p>
-
+    <br/>
     <?php 
         class FiguraGeometrica
         {
@@ -69,11 +69,12 @@
 
         echo $batata->nomeCompleto();
     ?>
+     <br/>
     <h3>CONSTRUCTOR</h3>
 
     <p> O CONSTRUCTOR, é um método especial dentro de uma classe que é sempre executdo automaticamente quando é criado um objeto a partir de uma classe.</p>
     <p> Este método é definido de uma forma especial com __ (dois underscors). São chamados métodos magicos porque têm uma execução específica ou automática associada.</p>
-    
+    <br/>
     <?php 
         class Batata
         {
@@ -94,10 +95,11 @@
 
         echo $potato->descricao();
     ?>
+     <br/>
     <h3>HERANÇA</h3>
 
     <p> Para herdar uma classe a partir de outra, usamos a expressão extends.</p>
-
+    <br/>
     <?php 
         class BatataFrita extends Batata
         {
@@ -120,12 +122,12 @@
 
         echo $fritada_monstra->fritar();
     ?>
-
+    <br/>
     <h3>OVERRIDING</h3>
 
     <p> O mecanismo de overriding permite a uma casse derivada ter métodos reescritos especificamente para a classe.</p>
     <p> Por exemplo, podemos ter um método TESTE na classe e ter o mesmo método TESTE com código diferente na classe derivada.</p>
-
+    <br/>
     <?php
         class Animal
         {
@@ -155,39 +157,112 @@
         $peixe = new Peixes();
         echo $peixe->mover();
     ?>
+    <br/>
+    <h3>PARENT</h3>
+    <p> Podemos chamar o construtor da classe base usando a expressão parent.</p>
+    <p> A expressão parent é um nome alternativo para o nome da classe base.</p>
+    <br/>
     <?php
 
-class Batata2 {
-    
-    public $tipo1;
-    public $tipo2;
-    
-    public function __construct($valor1,$valor2){
-        $this->tipo1 = $valor1;
-        $this->tipo2 = $valor2;
-    }
-    
-    public function getTipo1(){
-        return $this->tipo1;
-    }
-    
-    public function getTipo2(){
-        return $this->tipo2;
-    }
-    
-}
+        class Batata2 {
+            
+            public $tipo1;
+            public $tipo2;
+            
+            public function __construct($valor1,$valor2){
+                $this->tipo1 = $valor1;
+                $this->tipo2 = $valor2;
+            }
+            
+            public function getTipo1(){
+                return $this->tipo1;
+            }
+            
+            public function getTipo2(){
+                return $this->tipo2;
+            }
+            
+        }
 
-class BatataFrita2 extends Batata2 {
+        class BatataFrita2 extends Batata2 {
+            
+            public function __construct($tipo1,$tipo2){
+                parent::__construct($tipo1,$tipo2);
+            }
+            
+        }
+
+        $objeto = new BatataFrita2('Valor 1','Valor 2');
+        print $objeto->getTipo2();
+    ?>
+    <br/>
+    <h3>FINAL</h3>
+    <p> Para impedir que uma classe derivada possa fazer override de métodos</p>
+    <p> Podemos utilizar a expressão FINAL da seguinte forma: final function "nome da função()"</p>
+
+    <?php 
     
-    public function __construct($tipo1,$tipo2){
-        parent::__construct($tipo1,$tipo2);
+    class Veiculo
+    {
+        final function mover(){
+            echo "dromedálio";
+        }
     }
     
-}
-
-$objeto = new BatataFrita2('Valor 1','Valor 2');
-print $objeto->getTipo2();
-?>
+    class Bicicleta extends Veiculo
+    {
+    //  function mover(){   -> erro apresentado por nao ser possível fazer override do método da classe base.
+    //      echo "dendrobata";
+    //  }
+    }
+    ?>
+    <p> Podemos, inclusive, definir uma classe como não sendo possível ser herdada </p>
+    <p> colocando FINAL antes de CLASS.</p>
+    <?php 
     
+    final class Mesa
+    {
+        // código aqui.;
+    }
+
+    //class Mesa_sala extends Mesa  ->Fatal error: Class Mesa_sala may not inherit from final class (Mesa)
+    {
+        // Código aqui.;
+    }
+    ?>
+    <br/>
+    <h3>ACCESS LEVELS</h3>
+    <p> Existem 3 tipos de níveis de acesso a elementos dentro de uma classe.</p>
+    <p> public, protected e private</p>
+
+    <?php 
+    
+    class MinhaClasse
+    {
+        public $v1;
+        protected $v2;
+        private $v3;
+    }
+
+    class ClasseDerivada extends MinhaClasse
+    {
+        function testada(){
+            echo $this->v1;  # possível
+            echo $this->v2;  # possível
+            echo $this->v3;  # ERRO
+        }
+    }
+
+    $test = new MinhaClasse();
+    $test->v1 = '111';  # possível
+    $test->v2 = '222';  # ERRO
+    $test->v3 = '333';  # ERRO
+
+    $test2 = new ClasseDerivada();
+    $test2->v1 = '111';  # possível
+    $test2->v2 = '222';  # ERRO
+    $test2->v3 = '333';  # ERRO
+    
+    ?>
 </body>
 </html>
