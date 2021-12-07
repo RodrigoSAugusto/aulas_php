@@ -43,33 +43,151 @@
     <p>As propriedades podem ter níveis diferentes de acesso.</p>
 
     <?php 
-    class FiguraGeometrica
-    {
-        public $largura, $altura
-        public $x;
-        public $y;
-
-        function novaArea($a, $b)
+        class FiguraGeometrica
         {
-            return $a * $b;
+            public $largura, $altura;
+            public $x;
+            public $y;
+
+            function novaArea($a, $b)
+            {
+                return $a * $b;
+            }
         }
-    }
 
-    class Humano
-    {
-        public $nome = 'Rodrigo';
-        public $sobrenome = 'Augusto';
-
-        public function nomeCompleto()
+        class Humano
         {
-            return $this->nome. ' ' . $this->sobrenome;
+            public $nome = 'Rodrigo';
+            public $sobrenome = 'Augusto';
+
+            public function nomeCompleto()
+            {
+                return $this->nome. ' ' . $this->sobrenome;
+            }
         }
-    }
+        $batata = new Humano();
+
+        echo $batata->nomeCompleto();
+    ?>
+    <h3>CONSTRUCTOR</h3>
+
+    <p> O CONSTRUCTOR, é um método especial dentro de uma classe que é sempre executdo automaticamente quando é criado um objeto a partir de uma classe.</p>
+    <p> Este método é definido de uma forma especial com __ (dois underscors). São chamados métodos magicos porque têm uma execução específica ou automática associada.</p>
+    
+    <?php 
+        class Batata
+        {
+            private $tipo;
+            private $cor;
+
+            function __construct($t, $c){
+                $this->tipo = $t;
+                $this->cor = $c;
+            }
+
+            public function descricao(){
+                return "Batatas do tipo " . $this->tipo . " são geralmente da cor " . $this->cor;
+            }
+        }
+
+        $potato = new Batata('Irlandesa', 'azul');
+
+        echo $potato->descricao();
+    ?>
+    <h3>HERANÇA</h3>
+
+    <p> Para herdar uma classe a partir de outra, usamos a expressão extends.</p>
+
+    <?php 
+        class BatataFrita extends Batata
+        {
+            public $forma_corte;
+            public $qtd_sal;
+            public $tipo_oleo;
+
+            function __construct(){} # adicionado para não ser necessário declarar os parametros do construtor da classe pai. 
+
+            function fritar(){
+                return "Para fritar batatas do tipo {$this->tipo} precisamos usar o corte tipo {$this->forma_corte}, fritar em um óleo de {$this->tipo_oleo} e usar cerca de {$this->qtd_sal} de sal.";
+            }
+        }
+        
+        $fritada_monstra = new BatataFrita();
+        $fritada_monstra->tipo = "Irlandesa";
+        $fritada_monstra->forma_corte = "canoa";
+        $fritada_monstra->tipo_oleo = "soja";
+        $fritada_monstra->qtd_sal = "15g";
+
+        echo $fritada_monstra->fritar();
     ?>
 
+    <h3>OVERRIDING</h3>
+
+    <p> O mecanismo de overriding permite a uma casse derivada ter métodos reescritos especificamente para a classe.</p>
+    <p> Por exemplo, podemos ter um método TESTE na classe e ter o mesmo método TESTE com código diferente na classe derivada.</p>
+
+    <?php
+        class Animal
+        {
+            function mover(){
+                echo 'Mover a partir da classe base.';
+            }
+        } 
+
+        class Mamifero extends Animal
+        {
+
+        }
+
+        class Peixes extends Animal
+        {
+            function mover(){
+                echo 'Mover a partir da classe peixe.';
+            }
+        }
+        
+        $animal = new Animal();
+        echo $animal->mover();
+        echo '<br>';
+        $mamifero = new Animal();
+        echo $mamifero->mover();
+        echo '<br>';
+        $peixe = new Peixes();
+        echo $peixe->mover();
+    ?>
+    <?php
+
+class Batata2 {
     
+    public $tipo1;
+    public $tipo2;
+    
+    public function __construct($valor1,$valor2){
+        $this->tipo1 = $valor1;
+        $this->tipo2 = $valor2;
+    }
+    
+    public function getTipo1(){
+        return $this->tipo1;
+    }
+    
+    public function getTipo2(){
+        return $this->tipo2;
+    }
+    
+}
 
+class BatataFrita2 extends Batata2 {
+    
+    public function __construct($tipo1,$tipo2){
+        parent::__construct($tipo1,$tipo2);
+    }
+    
+}
 
+$objeto = new BatataFrita2('Valor 1','Valor 2');
+print $objeto->getTipo2();
+?>
     
 </body>
 </html>

@@ -38,8 +38,8 @@
 
     <form method="post" action="">
         <p>Defina o valor de x:  <input type="int" name="x"></p>
-        <p>Defina o valor de y: <input type="int" name="y"></p>
-        <p><input type="submit" value="Enviar"></p>
+        <p>Defina o valor de y: <input type="int" name="y" ></p>
+        <p><input type="submit" value="Enviar" ></p>
         
     </form>
     
