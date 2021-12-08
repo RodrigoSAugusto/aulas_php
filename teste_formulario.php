@@ -67,16 +67,16 @@
     <br/>    
     
     <?php
-    if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['apaga_post']))
-    {
-        apaga(); # Apaga os dados do POST
-    }
-    function apaga() {
-        unset($_POST);
-        unset($_REQUEST);
-        
-    }?>
-        </form>
+        if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['apaga_post']))
+        {
+            apaga(); # Apaga os dados do POST
+        }
+        function apaga() {
+            unset($_POST);
+            unset($_REQUEST);
+        }
+    ?>
+    </form>
 
     <?php 
 
@@ -98,36 +98,31 @@
   
     
     ?>
-
-    <table>
+        <table>
         <thead>
-                <tr>
-                    <th style="text-align: center; vertical-align: middle;" colspan="2" center>Cadastro</th>
-                </tr>
+            <tr>
+                <th colspan="2" center>Cadastro</th>
+            </tr>
         </thead>
         <tbody>
             <tr>
-                <td style="text-align: center; vertical-align: middle;" >Nome</td>
-                <td><?php echo $nome; ?></td>
-            </tr> 
+                <td colspan="2"><?php echo "Nome: " . $nome; ?></td>
+                <td></td>
+            </tr>
             <tr>
-                <td style="text-align: center; vertical-align: middle;" >Idade</td>
-                <td><?php echo $idade; ?></td>
-            </tr> 
+                <td rowspan=""><?php echo "Idade: " . $idade; ?></td>
+                <td rowspan=""><?php echo "E-mail: " . $email; ?></td>
+            </tr>
             <tr>
-                <td style="text-align: center; vertical-align: middle;" >E-mail</td>
-                <td><?php echo $email; ?></td>
-            </tr> 
+                <td colspan="2"><?php echo "Sexo: " . $sexo; ?></td>
+            </tr>
             <tr>
-                <td style="text-align: center; vertical-align: middle;" >Sexo</td>
-                <td><?php echo $sexo; ?></td>
-            </tr> 
-            <tr>
-                <td style="text-align: center; vertical-align: middle;" >Obsevações</td>
-                <td rows="2" cols="33"><?php echo $obs; ?></td>
-            </tr> 
+                <td rows="2" cols="33" colspan="2" style="text-align: center; vertical-align: middle;"><?php echo "Observações: " . $obs; ?></td>
+                <td></td>
+            </tr>
         </tbody>
+        <submi>    
     </table>
-    
+
 </body>
 </html>
