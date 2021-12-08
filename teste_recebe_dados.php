@@ -10,6 +10,43 @@
     <title></title>
 </head>
 <body>
+<form method="POST" action="teste_formulario.php">
+    <table>
+        <thead>
+            <tr>
+                <th colspan="2" center>Formulario de Cadastro</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan="2"><label for="nome" >Nome:</label><input type="text" minlength="3" maxlength="255" name="nome" /></td>
+                
+            </tr>
+            <tr>
+                <td rowspan=""><label for="idade" >Idade:</label><input type="int" maxlength="2" name="idade" /></td>
+                <td rowspan=""><label for="email" >E-mail:</label><input type="email" minlength="20" maxlength="255" name="email" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><label for="sexo">Sexo:</label><select name="sexo" id="sexo"><option></option><option value="outro">Outro</option><option value="Masculino">Masculino</option>
+                <option value="feminino">Feminino</option>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: center; vertical-align: middle;">Observações:</td>
+                <td><textarea rows="5" cols="33" minlength="10" maxlength="400" name="obs" ></textarea></td>
+            </tr>
+        </tbody>
+        <submi>    
+    </table>
+
+    <?php
+
+    if (strlen($_POST['nome']) >= 3){
+    $nome = $_POST['nome'];
+    return $nome;
+};
+    
+    ?>
 
 
     
