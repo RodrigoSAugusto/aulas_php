@@ -8,15 +8,13 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <title>Cadastro</title>
     <style>
-        div {
-            
+        div {  
             color: #123123;
             padding-left: 10px;
             padding-right: 10px;
             margin-bottom: 10px;
         }
         table {
-            
             border-collapse: collapse;
             background-size: 100% auto;
             color: #123123;
@@ -25,8 +23,7 @@
             height: 40px;
             width: 100px auto;
         }
-        td {
-           
+        td {         
             border: 1px solid black;
             width: 200px auto;
             height: 40px;
@@ -72,7 +69,7 @@
     <?php
     if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['apaga_post']))
     {
-        apaga();
+        apaga(); # Apaga os dados do POST
     }
     function apaga() {
         unset($_POST);
@@ -83,7 +80,7 @@
 
     <?php 
 
-        if(!empty($_POST['nome'])  && $_POST['sexo'] != null){
+        if(!empty($_POST['nome'])  && $_POST['sexo'] != null){ # != null porque o atributo sexo devolvia valor mesmo quando não setado.
             $nome = $_POST['nome'];
             $idade = $_POST['idade'];
             $email = $_POST['email'];
