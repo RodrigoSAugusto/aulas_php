@@ -8,25 +8,33 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <title>Cadastro</title>
     <style>
+        div {
+            
+            color: #123123;
+            padding-left: 10px;
+            padding-right: 10px;
+            margin-bottom: 10px;
+        }
         table {
             
             border-collapse: collapse;
-            background-image: ulr(https://lirp.cdn-website.com/095db2c8/dms3rep/multi/opt/Medicalway+-+Logomarca%2BSlogan+%28Branca%29-277w.png);
             background-size: 100% auto;
-            color: #456456;
+            color: #123123;
         }
         tr {
             height: 40px;
+            width: 100px auto;
         }
         td {
            
             border: 1px solid black;
-        }
-
-        
+            width: 200px auto;
+            height: 40px;
+        }       
     </style>
 </head>
 <body>
+    <div>
     <form method="POST" action="teste_formulario.php">
     <table>
         <thead>
@@ -97,34 +105,32 @@
     <table>
         <thead>
                 <tr>
-                    <th colspan="2" center>Cadastro</th>
+                    <th style="text-align: center; vertical-align: middle;" colspan="2" center>Cadastro</th>
                 </tr>
         </thead>
         <tbody>
             <tr>
-                <td>Nome</td>
+                <td style="text-align: center; vertical-align: middle;" >Nome</td>
                 <td><?php echo $nome; ?></td>
             </tr> 
             <tr>
-                <td>Idade</td>
+                <td style="text-align: center; vertical-align: middle;" >Idade</td>
                 <td><?php echo $idade; ?></td>
             </tr> 
             <tr>
-                <td>E-mail</td>
+                <td style="text-align: center; vertical-align: middle;" >E-mail</td>
                 <td><?php echo $email; ?></td>
             </tr> 
             <tr>
-                <td>Sexo</td>
+                <td style="text-align: center; vertical-align: middle;" >Sexo</td>
                 <td><?php echo $sexo; ?></td>
             </tr> 
             <tr>
-                <td>Obsevações</td>
+                <td style="text-align: center; vertical-align: middle;" >Obsevações</td>
                 <td style="wid~th:50%;"><?php echo $obs; ?></td>
             </tr> 
         </tbody>
     </table>
-    
-
     
 </body>
 </html>
