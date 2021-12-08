@@ -41,12 +41,12 @@
         </thead>
         <tbody>
             <tr>
-                <td colspan="2"><label for="nome" >Nome:</label><input type="text" maxlength="255" name="nome" /></td>
+                <td colspan="2"><label for="nome" >Nome:</label><input type="text" minlength="3" maxlength="255" name="nome" /></td>
                 
             </tr>
             <tr>
                 <td rowspan=""><label for="idade" >Idade:</label><input type="int" maxlength="2" name="idade" /></td>
-                <td rowspan=""><label for="email" >E-mail:</label><input type="email" maxlength="255" name="email" /></td>
+                <td rowspan=""><label for="email" >E-mail:</label><input type="email" minlength="20" maxlength="255" name="email" /></td>
             </tr>
             <tr>
                 <td colspan="2"><label for="sexo">Sexo:</label><select name="sexo" id="sexo"><option></option><option value="outro">Outro</option><option value="Masculino">Masculino</option>
@@ -55,7 +55,7 @@
             </tr>
             <tr>
                 <td style="text-align: center; vertical-align: middle;">Observações:</td>
-                <td><textarea maxlength="400" name="obs" ></textarea></td>
+                <td><textarea rows="5" cols="33" minlength="10" maxlength="400" name="obs" ></textarea></td>
             </tr>
         </tbody>
         <submi>    
@@ -124,7 +124,7 @@
             </tr> 
             <tr>
                 <td style="text-align: center; vertical-align: middle;" >Obsevações</td>
-                <td style="wid~th:50%;"><?php echo $obs; ?></td>
+                <td rows="2" cols="33"><?php echo $obs; ?></td>
             </tr> 
         </tbody>
     </table>
