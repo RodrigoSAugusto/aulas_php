@@ -47,6 +47,7 @@
         <a href="constantes_magicas.php" class="list-group-item list-group-item-action">Aula constantes_magicas.php</a>
         <a href="traits.php" class="list-group-item list-group-item-action">Aula traits.php</a>
         <a href="include.php" class="list-group-item list-group-item-action">Aula include.php</a>
+        <a href="testando_variaveis.php" class="list-group-item list-group-item-action">Aula testando_variaveis.php</a>
         </div>
     </div>
 
