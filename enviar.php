@@ -40,7 +40,7 @@
 
     // Verifica se $idade realmente existe e se é um número. 
     // Também verifica se não existe nenhum erro anterior
-    if ( ( ! isset( $idade) || ! is_numeric( $idade ) )) {
+    if ( ( ! isset( $idade) ) && ! filter_var($idade, FILTER_VALIDATE_INT)) {
         $idade = 'A idade deve ser um valor númerico.';
         $id2 = false;
     } else {
@@ -74,6 +74,9 @@
 
     if ( $id1 == true && $id2 == true && $id3 == true && $id4 == true && $id5 == true){
         $id = uniqid();
+        $cabecalho = "Cadastro N° {$id}";
+    } else {
+        $cabecalho = "Cadastro não válido, favor rever as informações fornecidas.";
     }
 
     ?>
@@ -81,7 +84,7 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th colspan="2" center><?php echo "Cadastro N° ".$id ?></th>
+                    <th colspan="2" center><?php echo $cabecalho ?></th>
                     
                 </tr>
             </thead>
