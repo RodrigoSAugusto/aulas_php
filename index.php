@@ -30,7 +30,7 @@
         <a href="constants.php" class="list-group-item list-group-item-action">Aula constants.php</a>
         <a href="exercicios_com_operadores1.php" class="list-group-item list-group-item-action">Aula exercicios_com_operadores1.php</a>
         <a href="formulario2.php" class="list-group-item list-group-item-action" id="div1" >Aula Teste de formulario.php</a>
-        <a href="funcoes_anonimas.php" class="list-group-item list-group-item-action"">Aula funcoes_anonimas.php</a>
+        <a href="funcoes_anonimas.php" class="list-group-item list-group-item-action">Aula funcoes_anonimas.php</a>
         <a href="funcoes.php" class="list-group-item list-group-item-action">Aula funcoes.php</a>
         <a href="generators.php" class="list-group-item list-group-item-action">Aula generators.php</a>
         <a href="getters_e_setters.php" class="list-group-item list-group-item-action">Aula getters_e_setters.php</a>
@@ -44,7 +44,9 @@
         <a href="static.php" class="list-group-item list-group-item-action">Aula static.php</a>
         <a href="strings.php" class="list-group-item list-group-item-action">Aula strings.php</a>
         <a href="teste_recebe_dados.php" class="list-group-item list-group-item-action">Aula teste_recebe_dados.php</a>
-        <a href="#" class="list-group-item list-group-item-action">Aula Dapibus ac facilisis in</a>
+        <a href="constantes_magicas.php" class="list-group-item list-group-item-action">Aula constantes_magicas.php</a>
+        <a href="traits.php" class="list-group-item list-group-item-action">Aula traits.php</a>
+        <a href="include.php" class="list-group-item list-group-item-action">Aula include.php</a>
         </div>
     </div>
 
