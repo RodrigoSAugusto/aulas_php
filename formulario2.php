@@ -38,24 +38,11 @@
         </div>
         
         <input type="submit"class="btn btn-default">
-        <input type="submit" class="btn btn-default" name="apaga_post" value="Apaga" />
+      
 
-        <?php
-            if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['apaga_post']))
-            {
-                apaga(); # Apaga os dados do POST
-            }
-            function apaga() {
-                unset($_POST);
-                unset($_REQUEST);
-            }
-        ?>
+        
         </form>
     </div>
-
-    <?php 
-    print_r($_POST)
-    ?>
 
     <?php 
         

@@ -40,7 +40,7 @@
 
     // Verifica se $idade realmente existe e se é um número. 
     // Também verifica se não existe nenhum erro anterior
-    if ( ( ! isset( $idade) ) && ! filter_var($idade, FILTER_VALIDATE_INT)) {
+    if ( ( ! isset( $idade) ) || ! filter_var($idade, FILTER_VALIDATE_INT) || empty($idade)) {
         $idade = 'A idade deve ser um valor númerico.';
         $id2 = false;
     } else {
@@ -63,7 +63,7 @@
         $id4 = true;
     }
 
-    if ( ( ! isset( $obs) || is_null($obs) )) {
+    if ( ( ! isset( $obs) || empty($obs) )) {
         $obs = 'A observação deve conter mais de 10 caracteres.';
         $id5 = false;
     }else {
