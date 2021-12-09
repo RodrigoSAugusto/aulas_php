@@ -12,29 +12,29 @@
 <body>
     <div class="container">
         <h2>Cadastro</h2>
-    <form method="POST" action="formulario2.php" >
+    <form method="POST" action="enviar.php" >
         <div class="form-group">
             <label for="nome">Nome:</label>
-            <input type="text" class="form-control" name="nome" required>
+            <input type="text" class="form-control" name="nome" >
         </div>
         <div class="form-group">
             <label for="idade">Idade:</label>
-            <input type="text" class="form-control" name="idade" required>
+            <input type="text" class="form-control" name="idade" >
         </div>
         
         <div class="form-group">
             <label for="email">E-mail:</label>
-            <input type="email" class="form-control" name="email" required>
+            <input type="email" class="form-control" name="email" >
         </div>
         <div class="form-group">
             <label for="sexo">Sexo:</label>
-            <select name="sexo" class="form-control" name="sexo" required><option></option><option value="outro">Outro</option><option value="Masculino">Masculino</option>
+            <select name="sexo" class="form-control" name="sexo" ><option></option><option value="outro">Outro</option><option value="Masculino">Masculino</option>
             <option value="feminino">Feminino</option></select>
         </div>
         <br/>
         <div class="form-group">
             <label for="obs">Observações:</label>
-            <textarea class="form-control" rows="5" cols="33" minlength="10" maxlength="400" name="obs" required></textarea>
+            <textarea class="form-control" rows="5" cols="33" minlength="10" maxlength="400" name="obs" ></textarea>
         </div>
         
         <input type="submit"class="btn btn-default">
@@ -78,40 +78,6 @@
   
     
     ?>
-    <br/>
-    <br/>
-    <div class="container">
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th colspan="2" center>Cadastro</th>
-                
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td colspan="2"><?php echo "Nome: " . $nome; ?></td>
-                
-            </tr>
-            <tr>
-                <td rowspan=""><?php echo "Idade: " . $idade; ?></td>
-                <td rowspan=""><?php echo "E-mail: " . $email; ?></td>
-            </tr>
-            <tr>
-                <td colspan="2"><?php echo "Sexo: " . $sexo; ?></td>
-                
-            </tr>
-            <tr>
-                <td colspan="2" style="text-align: center; vertical-align: middle;"><?php echo "Observações: " . $obs; ?></td>
-                
-            </tr>
-        </tbody>   
-    </table>
-    </div>
-        
-     
-     
-
 
         
     </body>
