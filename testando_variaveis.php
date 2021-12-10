@@ -41,8 +41,7 @@
         <p>
             Se tivermos uma variavel definida, mas o seu valor for null, é considerada como uma variável inexistente.
         </p>
-    </div>
-    <div class="container">
+
         <?php 
         
             $b = null;
@@ -50,6 +49,49 @@
 
         ?>
     </div>
+
+    <div class="container">
+
+            <h3>EMPTY</h3>
+        
+        <p>
+            Verifica se a variável tem um valor vazio (null, 0, false ou strong vazia) e retorna verdadeiro ou falso.
+        </p>
+
+        <?php
+        $x = 'João';
+        empty($b); # false
+
+        $y = false;
+        empty($y); # true
+
+        $nomes = [];
+        empty($nomes); # true
+
+        $outro = null;
+        empty($outro); #true
+        ?>
+    </div>
+
+    <div class="container">
+
+            <h3>IS_NULL</h3>
+        
+        <p>
+            Verifica se a variável tem um valor null ou não;
+        </p>
+
+        <?php
+        $x = 'João';
+        is_null($b); # false
+
+        $y = null;
+        is_null($y); # true
+        
+        ?>
+    </div>
+
+
 
 
     
