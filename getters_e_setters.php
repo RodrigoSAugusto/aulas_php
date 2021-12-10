@@ -10,66 +10,70 @@
     <title></title>
 </head>
 <body>
-    <h3>GETTERS E SETTERS</h3>
-
-    <p>Definir propriedades de classes como sendo publicas pode gerar muitos problemas, pricipalmente de segurança, por isso 
-        é aconselhavel setar o maximo de possível de propriedades como privada, e então fazer o uso de métodos específicos para 
-        fazer acesso a essas propriedades. Estes métodos permitirão que a integridade das propriedades sejam mantidas.</p>
-
-    <?php 
-    
-        class Passaro
-        {
-            private $peso = 75;
-
-            public function setPeso($valor){
-                if(is_numeric($valor)){ // valida se o $valor é numérico.
-                    $this->peso = $valor;
-                }
-            }
-
-            public function getPeso(){
-                return $this->peso;
-            }
-        }
+    <div class="container">
         
-        $pardal = new Passaro();
-        $pardal->setpeso('urubu');  // como o valor não é numérico o validação não o considera.
-        echo $pardal->getpeso();
+        <h3>GETTERS E SETTERS</h3>
 
+        <p>
+            Definir propriedades de classes como sendo publicas pode gerar muitos problemas, pricipalmente de segurança, por isso 
+            é aconselhavel setar o maximo de possível de propriedades como privada, e então fazer o uso de métodos específicos para 
+            fazer acesso a essas propriedades. Estes métodos permitirão que a integridade das propriedades sejam mantidas.
+        </p>
 
-        class Tempo
-        {
-            private $segundos;
+        <?php 
+        
+            class Passaro
+            {
+                private $peso = 75;
 
-            public function setSegundos($valor){
-                if(!is_numeric($valor) || $valor < 0){
-                    $this->segundos = 0;
-                } else {
-                    $this->segundos = $valor;
+                public function setPeso($valor){
+                    if(is_numeric($valor)){ // valida se o $valor é numérico.
+                        $this->peso = $valor;
+                    }
+                }
+
+                public function getPeso(){
+                    return $this->peso;
                 }
             }
+            
+            $pardal = new Passaro();
+            $pardal->setpeso('urubu');  // como o valor não é numérico o validação não o considera.
+            echo $pardal->getpeso();
 
-            function getMinutos(){
-                return $this->segundos / 60;
-            }
 
-            function setMinutos(){
-                if($valor == 0){
-                    $this->segundos = 0;
-                } else {
-                    $this->segundos = $valor * 60;
+            class Tempo
+            {
+                private $segundos;
+
+                public function setSegundos($valor){
+                    if(!is_numeric($valor) || $valor < 0){
+                        $this->segundos = 0;
+                    } else {
+                        $this->segundos = $valor;
+                    }
+                }
+
+                function getMinutos(){
+                    return $this->segundos / 60;
+                }
+
+                function setMinutos(){
+                    if($valor == 0){
+                        $this->segundos = 0;
+                    } else {
+                        $this->segundos = $valor * 60;
+                    }
                 }
             }
-        }
-        echo '<br>';
-        $crazy_clock = new Tempo();
-        $crazy_clock->setSegundos(96);
-        echo $crazy_clock->getMinutos();
+            echo '<br>';
+            $crazy_clock = new Tempo();
+            $crazy_clock->setSegundos(96);
+            echo $crazy_clock->getMinutos();
 
 
-    ?>
-
+        ?>
+    </div>
     
 </body>
 </html>

@@ -10,50 +10,57 @@
     <title></title>
 </head>
 <body>
-    <h3>STATIC</h3>
 
-    <p>A palavra chave static pode ser usada para declarar propriedades e métodos de uma classe que podem ser acessados sem que seja necessário criar um objeto a partir desta classe.</p>
+    <div class="container">
 
-    <?php
+        <h3>STATIC</h3>
 
-    class Teste
-    {
-        // instance members - um membro pr cada objeto a partir da classe.
-        public $nome;
-        function teste(){
-            // código aqui
-        }
+        <p>
+            A palavra chave static pode ser usada para declarar propriedades e métodos de uma classe que podem ser 
+            acessados sem que seja necessário criar um objeto a partir desta classe.
+        </p>
+
+        <?php
+
+            class Teste
+            {
+                // instance members - um membro pr cada objeto a partir da classe.
+                public $nome;
+                function teste(){
+                    // código aqui
+                }
+                
+                // static ou class members - apenas existentes uma vez na classe
+                static $idade;
+                static function contar(){
+                    // código aqui
+                }
+            }
+
+        ?>
         
-        // static ou class members - apenas existentes uma vez na classe
-        static $idade;
-        static function contar(){
-            // código aqui
-        }
-    }
-    ?>
-    
-    <!-- implementando -->
+        <!-- implementando -->
 
-    <?php 
-    
-    class Operacoes
-    {
-        static $valor1;
-        static $valor2;
+        <?php 
+        
+            class Operacoes
+            {
+                static $valor1;
+                static $valor2;
 
-        static function adicionar(){
-            return self::$valor1 + self::$valor2;
-            // retursn Operacoes;;$valor1 + operacoes::$valor2; alternativa
-        }
-    }
-    
-    Operacoes::$valor1 = 10;
-    Operacoes::$valor2 = 20;
-    echo Operacoes::adicionar();
-    
-    ?>
+                static function adicionar(){
+                    return self::$valor1 + self::$valor2;
+                    // retursn Operacoes;;$valor1 + operacoes::$valor2; alternativa
+                }
+            }
+            
+            Operacoes::$valor1 = 10;
+            Operacoes::$valor2 = 20;
+            echo Operacoes::adicionar();
+            
+        ?>
 
+    </div>
 
-    
 </body>
 </html>

@@ -20,35 +20,31 @@
         <h3> Aulas PHP iniciante </h3>
     <div>
 
+    </div>
+
     <div class="container">
         <div class="list-group">
         <a class="list-group-item list-group-item-action active">
             Lista de arquivos 'Aulas.php'
         </a>
-        <a href="arrays.php" class="list-group-item list-group-item-action">Aula arrays.</a>
-        <a href="condicionais_e_ciclos.php" class="list-group-item list-group-item-action">Aula condicionais_e_ciclos.php</a>
-        <a href="constants.php" class="list-group-item list-group-item-action">Aula constants.php</a>
-        <a href="exercicios_com_operadores1.php" class="list-group-item list-group-item-action">Aula exercicios_com_operadores1.php</a>
-        <a href="formulario2.php" class="list-group-item list-group-item-action" id="div1" >Aula Teste de formulario.php</a>
-        <a href="funcoes_anonimas.php" class="list-group-item list-group-item-action">Aula funcoes_anonimas.php</a>
-        <a href="funcoes.php" class="list-group-item list-group-item-action">Aula funcoes.php</a>
-        <a href="generators.php" class="list-group-item list-group-item-action">Aula generators.php</a>
-        <a href="getters_e_setters.php" class="list-group-item list-group-item-action">Aula getters_e_setters.php</a>
-        <a href="manipulando_strings.php" class="list-group-item list-group-item-action">Aula manipulando_strings.php</a>
-        <a href="object_access.php" class="list-group-item list-group-item-action">Aula object_access.php</a>
-        <a href="Operador_ternario.php" class="list-group-item list-group-item-action">Aula Operador_ternario.php</a>
-        <a href="operadores_de_atribuicoes.php" class="list-group-item list-group-item-action">Aula operadores_de_atribuicoes.php</a>
-        <a href="Operadores_logicos.php" class="list-group-item list-group-item-action">Aula Operadores_logicos.php</a>
-        <a href="opradores_de_comparacao.php" class="list-group-item list-group-item-action">Aula opradores_de_comparacao.php</a>
-        <a href="POO.php" class="list-group-item list-group-item-action">Aula POO.php</a>
-        <a href="static.php" class="list-group-item list-group-item-action">Aula static.php</a>
-        <a href="strings.php" class="list-group-item list-group-item-action">Aula strings.php</a>
-        <a href="teste_recebe_dados.php" class="list-group-item list-group-item-action">Aula teste_recebe_dados.php</a>
-        <a href="constantes_magicas.php" class="list-group-item list-group-item-action">Aula constantes_magicas.php</a>
-        <a href="traits.php" class="list-group-item list-group-item-action">Aula traits.php</a>
-        <a href="include.php" class="list-group-item list-group-item-action">Aula include.php</a>
-        <a href="testando_variaveis.php" class="list-group-item list-group-item-action">Aula testando_variaveis.php</a>
-        </div>
+
+       
+        <?php 
+    
+            $path = "../aulas_php/";
+            $diretorio = dir($path);
+            $noadd = ".";
+            $scandir = scandir($path);
+            
+            while($arquivo = $diretorio -> read()){
+                if(strpos($arquivo, $noadd)){
+                echo "<a href='{$arquivo}' class='list-group-item list-group-item-action'> $arquivo </a>";
+                }
+            }
+            $diretorio -> close();
+        
+        ?>
+
     </div>
 
 

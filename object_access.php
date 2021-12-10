@@ -10,42 +10,52 @@
     <title>OBJECT ACCESS</title>
 </head>
 <body>
-    <h3>OBJECT ACCESS</h3>
 
-    <p>No PHP, um objeto instanciado a partir de uma classe pode acessar a elementos privados e protegidos de outro objeto</p>
-    <p>criado a partir da mesma classe.</p>
-    <p>Este comportamento não acontece na maior parte das outras linguagens de programação.</p>
+    <div class="container">
+        <h3>OBJECT ACCESS</h3>
 
-    <?php 
-    
-    class Humano
-    {
-        private $nome = 'x';
+        <p>
+            No PHP, um objeto instanciado a partir de uma classe pode acessar a elementos privados e protegidos de outro objeto.
+        </p>
 
-        function setPrivate($objeto, $valor){
-            $objeto->nome = $valor;
-        }
+        <p>
+            criado a partir da mesma classe.
+        </p>
 
-        function apresentar(){
-            echo $this->nome;
-        }
+        <p>
+            Este comportamento não acontece na maior parte das outras linguagens de programação.
+        </p>
 
-        function getnome(){
-            return $this->nome;
-        }
-    }
+        <?php 
+        
+            class Humano
+            {
+                private $nome = 'x';
 
-    $a = new Humano();
-    $b = new Humano();
-    $a->setPrivate($b, 'Rodrigo');
-    echo $a->getnome(); 
+                function setPrivate($objeto, $valor){
+                    $objeto->nome = $valor;
+                }
 
-    $a->apresentar();
-    echo '<br>';
-    $b->apresentar();
-    
-    ?>
+                function apresentar(){
+                    echo $this->nome;
+                }
 
-    
+                function getnome(){
+                    return $this->nome;
+                }
+            }
+
+            $a = new Humano();
+            $b = new Humano();
+            $a->setPrivate($b, 'Rodrigo');
+            echo $a->getnome(); 
+
+            $a->apresentar();
+            echo '<br>';
+            $b->apresentar();
+        
+        ?>
+    </div>
+
 </body>
 </html>
