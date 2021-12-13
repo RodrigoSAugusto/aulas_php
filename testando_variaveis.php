@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    
+
     <title>Testando variáveis</title>
 </head>
 <body>
@@ -16,9 +16,53 @@
     </div>
 
     <div class="container">
+        <h3>VERIFICAR O TIPO DE VARIÁVEL</h3>
+
+        <p>
+            O PHP contém um conjunto vasto de funções que permitem avaliar que tipo de dados estão guardados dentro de uma variável.
+        </p>
+
+        <?php 
+        
+        $name = 'My name';
+        $age = 30;
+        $awake = true;
+
+        if(is_array($name)){
+            echo 'É um array.';
+        } else {
+            echo 'Não é um array.';
+            echo '<pre>';
+            print_r(gettype($name));
+            echo '</pre>';
+        }
+
+        if(is_bool($awake)){
+            echo 'É um valor booleano.'.'<br/> <br/>';
+        }
+
+        ?>
+
+        <p>
+            Outras funções similares são: <br>
+            is_callable()<br>
+            is_float() ou is_double()<br>
+            is_real()<br>
+            is_int() ou is_integer()<br>
+            is_long()<br>
+            is_null()<br>
+            is_numeric()<br>
+            is_object()<br>
+            is_string()<br>
+            <br>
+        </p>
+
+    </div>
+    
+    <div class="container">
         
         <p>
-            Acontece inúmeras vezes no nosso código a necessidade de verificar ou testar a exixtncia de variaveis ou do seu valor.
+            Acontece inúmeras vezes no nosso código a necessidade de verificar ou testar a existência de variáveis ou do seu valor.
             Para isso o PHP contém em conjunto de construções internas que nos permitem fazer essa verificação.
         </p>
         <p>
