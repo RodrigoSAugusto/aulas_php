@@ -30,10 +30,12 @@
 
        
         <?php 
+
+            // Lista os diretórios da pasta aulas_php, e cria uma lista com um link pra cadaitem listado. 
     
             $path = "../aulas_php/";
             $diretorio = dir($path);
-            $noadd = ".";
+            $noadd = ".";           // Exclui da lista todos os arquivos que começam com '.' (ponto).
             $scandir = scandir($path);
             
             while($arquivo = $diretorio -> read()){
