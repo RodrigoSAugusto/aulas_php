@@ -21,8 +21,8 @@
             var_dump<br>
             var_export<br>
         </p>
-        <br>
-        <br>
+        
+        <hr>
 
         <h4>PRINT_R</h4>
 
@@ -43,6 +43,7 @@
 
         ?>
 
+        <hr>
 
         <h4>VAR_DUMP</h4>
 
@@ -63,6 +64,8 @@
             echo '</pre>';
 
         ?>
+
+        <hr>
 
         <h4>VAR_EXPORT</h4>
 
