@@ -12,8 +12,6 @@
         }
     }
 
-    
-
     // Verifica se $nome realmente existe e se tem mais de 2 caracteres. 
     // Também verifica se não existe nenhum erro anterior
     if ( ( ! isset( $nome) || strlen($nome) <= 3 )) {
@@ -59,7 +57,7 @@
 
     if ( $id1 == true && $id2 == true && $id3 == true && $id4 == true && $id5 == true){
         $id = uniqid();
-        $cabecalho = "Cadastro &#x2116 {$id}";
+        $cabecalho = "Cadastro N° {$id}";
     } else {
         $cabecalho = "Cadastro não válido, favor rever as informações fornecidas.";
     }
@@ -142,28 +140,25 @@
             //Recipients
             $mail->setFrom('rodrigosilvaugusto@gmail.com', 'Rodrigo');
             $mail->addAddress('rodrigo.silva@medicalway.com.br', 'Rodrigo');     //Add a recipient
-            // $mail->addAddress('bruno@medicalway.com.br', 'Bruno');
-            $mail->addAddress('everton@medicalway.com.br', 'Everton');
+            $mail->addAddress('bruno@medicalway.com.br', 'Bruno');
+            // $mail->addAddress('everton@medicalway.com.br', 'Everton');
     
             //Content
             $mail->isHTML(true);                                  //Set email format to HTML
+            $mail->CharSet = 'UTF-8';
             $mail->Subject = 'Here is the subject';
             $mail->Body    = "<!DOCTYPE html>
                                 <html lang='en'>
                                 <head>
                                     <meta charset='UTF-8'>
                                     <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
-                                    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css'>
-                                    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
-                                    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js'></script>
-                                    <title>Cadastro</title>
                                 
                                     
                                 </head>
                                 <body>
 
                                 <p> 
-                                    Segue no corpo da mensagem tarefa de hoje. Esta correto?
+                                    Formulário preenchido corretamente, sem as mensagens de validação:
                                 </p>
 
                                     <table border='1'>
@@ -187,7 +182,7 @@
                                                 
                                             </tr>
                                             <tr>
-                                                <td colspan='2' style='text-align: center; vertical-align: middle;'>Observa&ccedil&otildees: $obs</td>
+                                                <td colspan='2' style='text-align: center; vertical-align: middle;'>Observações: $obs</td>
                                                 
                                             </tr>
                                         </tbody>   
