@@ -64,12 +64,19 @@
         $cabecalho = "Cadastro não válido, favor rever as informações fornecidas.";
     }
 
+    // Cria conexão com banco de dados.
+
     $link = mysqli_connect('', 'root', '', 'teste');
+
+    // Vereifica a conexão.
+
     if (!$link) {
-        die('Não foi possível conectar: ' . mysqli_error());
+        die('Não foi possível conectar: ' . mysqli_error()); 
     }
 
     echo 'Conexão bem sucedida';
+
+    // Insere no banco as variaveis geradas a partir do POST.
 
     $sql = "INSERT INTO cadastro (numcadastro, nome, idade, email, sexo, obs) VALUES ('$id', '$nome', '$idade', '$email', '$sexo', '$obs')";
     if (mysqli_query($link, $sql)) {
