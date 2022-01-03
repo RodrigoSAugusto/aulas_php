@@ -1,7 +1,5 @@
 <?php
 
-    
-
     // Cria as variáveis dinamicamente
     foreach ( $_POST as $chave => $valor ) {
         // Remove todas as tags HTML
@@ -64,41 +62,10 @@
         $cabecalho = "Cadastro não válido, favor rever as informações fornecidas.";
     }
 
-    // Cria conexão com banco de dados.
 
-    $link = mysqli_connect('', 'root', '', 'teste');
 
-    // Vereifica a conexão.
 
-    if (!$link) {
-        die('Não foi possível conectar: ' . mysqli_error()); 
-    }
-
-    echo 'Conexão bem sucedida. <br>';
-
-    // Insere no banco as variaveis geradas a partir do POST.
-
-    if (!empty($id)){
-        $sql = "INSERT INTO cadastro (numcadastro, nome, idade, email, sexo, obs) VALUES ('$id', '$nome', '$idade', '$email', '$sexo', '$obs')";
-    } else {
-        echo "Cadastro invalido.";
-        return false;
-    }
     
-    if (mysqli_query($link, $sql)) {
-        echo "Cadastro gravado com sucesso!";
-    } else {
-        echo "Erro: " . $sql . "<br>" . mysqli_error($link);
-    }
-
-    #$sql_d = "DELETE FROM cadastro WHERE id IN (3, 4, 6, 7)";
-
-    #(mysqli_query($link, $sql_d));
-
-    mysqli_close($link);
-
-
-
     ?>
 
 

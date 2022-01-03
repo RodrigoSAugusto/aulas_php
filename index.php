@@ -34,15 +34,18 @@
             // Lista os diretórios da pasta aulas_php, e cria uma lista com um link pra cadaitem listado. 
     
             $path = "../aulas_php/";
+            $path2 = "../aulas_php/SQL_CRUD";
             $diretorio = dir($path);
+            $diretorio2 = dir($path2);
             $noadd = ".";           // Exclui da lista todos os arquivos que começam com '.' (ponto).
             $scandir = scandir($path);
             
-            while($arquivo = $diretorio -> read()){
+            while($arquivo = $diretorio -> read() or $arquivo = $diretorio2 -> read()){
                 if(strpos($arquivo, $noadd)){
                 echo "<a href='{$arquivo}' class='list-group-item list-group-item-action'> $arquivo </a>";
                 }
             }
+
             $diretorio -> close();
         
         ?>
