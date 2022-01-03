@@ -1,5 +1,7 @@
 <?php
 
+    
+
     // Cria as variáveis dinamicamente
     foreach ( $_POST as $chave => $valor ) {
         // Remove todas as tags HTML
@@ -61,6 +63,22 @@
     } else {
         $cabecalho = "Cadastro não válido, favor rever as informações fornecidas.";
     }
+
+    $link = mysqli_connect('', 'root', '', 'teste');
+    if (!$link) {
+        die('Não foi possível conectar: ' . mysqli_error());
+    }
+
+    echo 'Conexão bem sucedida';
+
+    $sql = "INSERT INTO cadastro (numcadastro, nome, idade, email, sexo, obs) VALUES ('$id', '$nome', '$idade', '$email', '$sexo', '$obs')";
+    if (mysqli_query($link, $sql)) {
+        echo "Cadastro gravado com sucesso!";
+    } else {
+        echo "Erro: " . $sql . "<br>" . mysqli_error($link);
+    }
+
+    mysqli_close($link);
 
     ?>
 
@@ -138,9 +156,9 @@
             $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
             //Recipients
-            $mail->setFrom('rodrigosilvaugusto@gmail.com', 'Rodrigo');
-            $mail->addAddress('rodrigo.silva@medicalway.com.br', 'Rodrigo');     //Add a recipient
-            $mail->addAddress('bruno@medicalway.com.br', 'Bruno');
+            #$mail->setFrom('rodrigosilvaugusto@gmail.com', 'Rodrigo');
+            #$mail->addAddress('rodrigo.silva@medicalway.com.br', 'Rodrigo');     //Add a recipient
+            #$mail->addAddress('bruno@medicalway.com.br', 'Bruno');
             // $mail->addAddress('everton@medicalway.com.br', 'Everton');
     
             //Content
