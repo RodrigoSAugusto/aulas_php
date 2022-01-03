@@ -74,18 +74,30 @@
         die('Não foi possível conectar: ' . mysqli_error()); 
     }
 
-    echo 'Conexão bem sucedida';
+    echo 'Conexão bem sucedida. <br>';
 
     // Insere no banco as variaveis geradas a partir do POST.
 
-    $sql = "INSERT INTO cadastro (numcadastro, nome, idade, email, sexo, obs) VALUES ('$id', '$nome', '$idade', '$email', '$sexo', '$obs')";
+    if (!empty($id)){
+        $sql = "INSERT INTO cadastro (numcadastro, nome, idade, email, sexo, obs) VALUES ('$id', '$nome', '$idade', '$email', '$sexo', '$obs')";
+    } else {
+        echo "Cadastro invalido.";
+        return false;
+    }
+    
     if (mysqli_query($link, $sql)) {
         echo "Cadastro gravado com sucesso!";
     } else {
         echo "Erro: " . $sql . "<br>" . mysqli_error($link);
     }
 
+    #$sql_d = "DELETE FROM cadastro WHERE id IN (3, 4, 6, 7)";
+
+    #(mysqli_query($link, $sql_d));
+
     mysqli_close($link);
+
+
 
     ?>
 
