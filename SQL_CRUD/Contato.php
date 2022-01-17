@@ -11,59 +11,34 @@
     <title></title>
 </head>
 <body>
-<?php
 
-    
-
-    if (!isset($cabecalho)){
-        $cabecalho = "<div id='Container'>
-                <h1>Agenda de Contatos utilizando AJAX</h1>
-                <hr/>
-
-                <h2>Pesquisar Contato:</h2>
-                <div id='Pesquisar'>
-                    Infome o nome:
-                    <input type='text' name='txtnome' id='txtnome'/>
-                    <input type='button' name='btnPesquisar' value='Pesquisar' onclick='getDados();'/>
-                </div>
-                <hr/>
-
-                <h2>Resultados da pesquisa:</h2>
-                <div id='Resultado'></div>
-                <hr>";
-    } else {
-        return;
-    }
-        
-    echo $cabecalho;
-
-?>
-
-
-
-
-
+<div class="container">
     <?php
 
-    include 'sql_connect.php';
-    
+        //Inclui a conexão com banco de dados.
+        include 'sql_connect.php';
 
-    if (isset($_GET["txtnome"])){
-        $nome = $_GET["txtnome"];
+        
+      
+        //Verifica se txtnome esta definido, se não estiver, difine a variavel $nome = txtnome
+        if (isset($_GET["txtnome"])){
+            $nome = $_GET["txtnome"];
+            
 
-        //Verifica se a variável esta vazia
-        if (empty($nome)){
-            $sql = "SELECT * FROM cadastro";
+            //Verifica se a variável esta vazia
+            if (empty($nome)){
+                $sql = "SELECT * FROM cadastro";
 
-        } else {
-            $nome .= "%";
-            $sql = "SELECT * FROM cadastro WHERE nome like '$nome'";
-        }
+            } else {
+                $nome .= "%";
+                $sql = "SELECT * FROM cadastro WHERE nome like '$nome'";
+            }
 
-        sleep(1);
-        $result = mysqli_query($link, $sql);
+            sleep(1);
+            $result = mysqli_query($link, $sql);
+            
 
-        //Aqui verificamos se existe algum registro da query.
+            //Aqui verificamos se existe algum registro da query.
             if(mysqli_num_rows($result)>0) {
                 echo "<table class='table table-bordered table-striped table-dark'>"; //Criamos a tabela
                 //Aqui criamos o cabeçalho da tabela.
@@ -75,6 +50,7 @@
                     ."<td>Email</td>"
                     ."<td>Sexo</td>"
                     ."<td>Observações</td>"
+                    ."<td>Editar</td>"
                     ."</tr>"; // Fechamos o cabeçalho. 
             }   
 
@@ -82,23 +58,77 @@
             //Montar uma linha, e as células da tabela.
             while($exibe=mysqli_fetch_array($result)) {
                 $id = $exibe['id'];
-                    //Não exibi todos os dados, agora é só você completar, colocando cada célula dentro de um <td>
-                    echo "<tr><td>$exibe[id]</td>"
-                        ."<td>$exibe[numcadastro]</td>"
-                        ."<td>$exibe[nome]</td>"
-                        ."<td>$exibe[idade]</td>"
-                        ."<td>$exibe[email]</td>"
-                        ."<td>$exibe[sexo]</td>"
-                        ."<td>$exibe[obs]</td>"
-                        ."</tr>";
+                $update = 'sql_update.php' . '?id=' . $exibe['id'];
+                //Não exibi todos os dados, agora é só você completar, colocando cada célula dentro de um <td>
+                echo "<tr><td>$exibe[id]</td>"
+                    ."<td>$exibe[numcadastro]</td>"
+                    ."<td>$exibe[nome]</td>"
+                    ."<td>$exibe[idade]</td>"
+                    ."<td>$exibe[email]</td>"
+                    ."<td>$exibe[sexo]</td>"
+                    ."<td>$exibe[obs]</td>"
+                    ."<td><a href='$update' class='btn btn-info' role='button' >Editar</a></td>"
+                    ."</tr>";
+            }
+            // E fora do while fechamos a tabela.
+            echo "</table>";
+
+        }
+
+        //Difine as variaveis do $_POST.
+            if (!empty($_POST)){
+                      
+                $idup=$_POST['txtid'];
+                $numcadastro=$_POST['numcadastro'];
+                $nome=$_POST['nome'];
+                $idade=$_POST['age'];
+                $email=$_POST['email'];
+                $sexo=$_POST['sexo'];
+                $obs=$_POST['obs'];
+
+                
+
+
+                //Verifica se a variável esta vazia
+                if (empty($idup)){
+                    echo "<div class='container'>
+
+                            <h1>Os campos estão vazios ou incorretos.</h1>
+                            <hr/>
+                    
+                            <h2>Favor revisar os dados enviados.</h2>
+                            <div id='Pesquisar'>
+
+                                <a href='' class='btn btn-info' role='button'>Link Button</a>
+
+                            </div>
+                            
+                    
+                        </div>";
+
+                } else {
+
+                    $sql2 = "UPDATE cadastro SET numcadastro='$numcadastro',nome='$nome',idade='$idade',email='$email',sexo='$sexo',obs='$obs' WHERE id='$idup'";
+
+                    if (mysqli_query($link, $sql2)) {
+                        echo "<div class='alert alert-success' role='alert'>
+                                    Registro atualizado com sucesso!!!
+                                </div>
+                                <a class='btn btn-primary' href='index.php' role='button'>Voltar para a Consulta</a>";
+                    } else {
+                        echo "Error: " . $sql2 . "<br>" . mysqli_error($link);
+                    }
+
+                    mysqli_close($link);
                 }
-                // E fora do while fechamos a tabela.
-                echo "</table>";
+            }
+            
+      
 
-    }  
-        ?>
+    
+    ?>
         
-
+</div>
         
     
 </body>
