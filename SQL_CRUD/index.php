@@ -15,9 +15,14 @@
 
     <div class="container">
 
-        <h1>Agenda de Contatos utilizando AJAX</h1>
-        <hr/>
 
+
+        <h1>Agenda de Contatos</h1>
+        <hr/>
+        <h2>Inserir Contato:</h2>
+        <div id='Insere'>
+        <a href='sql_update.php' class='btn btn-info' role='button' >Inserir</a>
+        </div>
         <h2>Pesquisar Contato:</h2>
         <div id='Pesquisar'>
             Informe o nome:
