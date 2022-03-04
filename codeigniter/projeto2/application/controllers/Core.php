@@ -8,24 +8,25 @@ class Core extends CI_Controller
   public function index()
   {
 
+    // Imagens dos Planetas
+    $this->load->model('planetas');
+    $dados['planetas'] = $this->planetas->imagensPlanetas();
+
     $this->load->view('template/cabecalho');
-    $this->load->view('pagina1');
+    $this->load->view('pagina_inicial', $dados);
     $this->load->view('template/rodape');
   }
 
-  public function pagina2()
+  public function planeta($id)
   {
 
-    $this->load->view('template/cabecalho');
-    $this->load->view('pagina2');
-    $this->load->view('template/rodape');
-  }
+    $this->load->model('planetas');
 
-  public function pagina3()
-  {
+    // Carrega os dados dos planetas para serem apresentados nas views.
+    $dados['planetas'] = $this->planetas->planeta($id);
 
     $this->load->view('template/cabecalho');
-    $this->load->view('pagina3');
+    $this->load->view('pagina_planeta', $dados);
     $this->load->view('template/rodape');
   }
 }

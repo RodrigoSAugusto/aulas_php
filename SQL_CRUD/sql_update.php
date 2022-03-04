@@ -37,9 +37,7 @@
             'obs' => 'Observação'
         ];
     }
-    echo "<pre>";
-    print_r($exibe);
-    echo "</pre>";
+    
     ?>
 
         <div class="col-md-5 col-md-offset-1">
