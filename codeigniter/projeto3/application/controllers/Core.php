@@ -20,5 +20,21 @@ class Core extends CI_Controller
 
     // grava os dados no banco
     $this->db->query('INSERT INTO dbcontact(nome, telefone) VALUES(?, ?)', $valores);
+    redirect('Core');
+  }
+
+  public function consultar()
+  {
+
+    // Nome a ser consultado no banco.
+    $consulta = [
+      $this->input->post('consulta')
+    ];
+
+
+
+    $dados = $this->db->query('SELECT * FROM dbcontact WHERE nome LIKE ?', $consulta);
+    echo $dados;
+    // $this->load->view('pagina_inicial', $dados);
   }
 }
