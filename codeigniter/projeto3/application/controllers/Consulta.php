@@ -10,13 +10,34 @@ class Core extends CI_Controller
   {
     $this->load->view('layout/header');
     $this->load->view('content');
+    $this->load->view('layout/footer');
+  }
+
+  public function deleta()
+  {
     $this->load->view('layout/header');
+    $this->load->view('content');
+    $this->load->view('layout/footer');
+  }
+
+  public function insert()
+  {
+    $this->load->view('layout/header');
+    $this->load->view('content');
+    $this->load->view('layout/footer');
+  }
+
+  public function update()
+  {
+    $this->load->view('layout/header');
+    $this->load->view('content');
+    $this->load->view('layout/footer');
   }
 
   public function consulta()
   {
-    $this->load->view('bastion');
+    $this->load->view('layout/header');
     $this->load->view('Incoming');
-    $this->load->view('common');
+    $this->load->view('layout/footer');
   }
 }
