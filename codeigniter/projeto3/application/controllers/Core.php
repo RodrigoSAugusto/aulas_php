@@ -8,17 +8,14 @@ class Core extends CI_Controller
 
   public function index()
   {
-
-    $this->load->model('contato');
     $this->load->view('layout/header');
     $this->load->view('content');
     $this->load->view('layout/header');
   }
 
-  public function consulta()
+  public function inseregasto()
   {
-    $this->load->view('bastion');
-    $this->load->view('Incoming');
-    $this->load->view('common');
+    $this->load->model('model_base');
+    $this->model_base->inseregasto();
   }
 }
