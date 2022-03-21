@@ -13,10 +13,10 @@
     <p>
       Informe o tipo de gasto: <br />
       <select name="txttipo" id="txttipo" required>
-        <option value="cred">Crédito</option>
-        <option value="deb">Débito</option>
-        <option value="din">Dinheiro</option>
-        <option value="vale">Vale Alimentação/Flash</option>
+        <option value="credito">Crédito</option>
+        <option value="debito">Débito</option>
+        <option value="dinheiro">Dinheiro</option>
+        <option value="vale_Alimentação/Flash">Vale Alimentação/Flash</option>
       </select>
     </p>
 
@@ -40,50 +40,69 @@
 
 </div>
 
+<hr>
+<hr>
 <!-- Consulta os gastos no banco -->
 
-<div>
+<div class="container">
 
-  <form class="container" action="<?php echo site_url('core/consultaGasto'); ?>" method="post">
+  <h2>Consulta de Gastos</h2>
+  <br>
+  <form class="container" action="<?php echo site_url('core/consultageral'); ?>" method="post">
 
     <p>
       Selecione o tipo de pesquisa e depois a referencia para pesquisa.
     </p>
-    <!--
-    <p>
-
-      <select name="txtpesquisa" id="txtpesquisa">
-
-        <option value="desc">Descrição</option>
-        <option value="tgas">Tipo de Gasto</option>
-        <option value="data">Data</option>
-
-      </select>
-
-    </p>
--->
-    <div class="container">
-
-      <input type="checkbox" id="descricao" name="descricao" checked>
-      <label for="descricao">Descrição</label>
-      <input type="text" id="desc" name="desc">
-    </div>
-
-    <div class=" container">
-
-      <input type="checkbox" id="tipogasto" name="tipogasto">
-      <label for="tgas">Tipo de Gasto</label>
-
-    </div>
 
     <div class="container">
 
-      <input type="checkbox" id="data" name="data">
-      <label for="dat">Data</label>
+      <div class="row">
 
-    </div>
+        <div class="col-3">
+          <!-- Campo para pesquisar item por nome/descrição -->
 
-    <button class="btn btn-info">Inserir</button>
+          <div>
+            <input type="checkbox" id="descricao" name="descricao">
+            <label for="descricao">Descrição</label>
+          </div>
+
+          <div>
+            <input id="descricaotxt" name="descricaotxt" type="text">
+          </div>
+
+        </div>
+
+        <div class="col-3">
+          <!-- Campo para pesquisar item por "tipo" -->
+
+          <div>
+            <input type="checkbox" id="tipogasto" name="tipogasto">
+            <label for="tipogasto">Tipo de Gasto</label>
+          </div>
+
+          <div>
+            <input id="tipotxt" name="tipotxt" type="text">
+          </div>
+
+        </div>
+
+        <div class="col-3">
+          <!-- Campo para pesquisar item por data de incerção -->
+
+          <div>
+            <input type="checkbox" id="data" name="data">
+            <label for="data">Data</label>
+          </div>
+          <div>
+            <input id="datatxt" name="datatxt" type="text">
+          </div>
+
+        </div>
+      </div>
+      <br>
+      <div>
+        <button class="btn btn-info">Pesquisar</button>
+      </div>
 
   </form>
 

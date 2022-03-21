@@ -21,11 +21,11 @@ class Core extends CI_Controller
     $this->load->view('layout/footer');
   }
 
-  public function consultagasto()
+  public function consultageral()
   {
     $this->load->view('layout/header');
     $this->load->model('model_base');
-    $this->model_base->consultagasto();
+    $this->model_base->consultageral();
     $this->load->view('layout/footer');
   }
 }
