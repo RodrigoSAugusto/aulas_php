@@ -15,6 +15,17 @@ class Model_base extends CI_Model
     );
 
     $this->db->insert('gastos', $dados);
+    redirect('core/index');
+  }
+
+  public function ConsultaGasto()
+  {
+    $desc = $this->input->post('desc');
+    $tgas = $this->input->post('tgas');
+    $dat = $this->input->post('dat');
+
+
+    print_r($this->db->get_where('gastos', array('nome' => $desc, 'tipo' => $tgas, 'data' => $dat)));
   }
 }
 

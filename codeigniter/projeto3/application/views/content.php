@@ -12,7 +12,7 @@
 
     <p>
       Informe o tipo de gasto: <br />
-      <select placeholder="Tipo do gasto" name="txttipo" id="txttipo" required>
+      <select name="txttipo" id="txttipo" required>
         <option value="cred">Crédito</option>
         <option value="deb">Débito</option>
         <option value="din">Dinheiro</option>
@@ -38,22 +38,53 @@
     <button class="btn btn-info">Inserir</button>
   </form>
 
-  <div class="container">
+</div>
 
-    <h1>Codeigniter Fullcalendar example - ItSolutionStuff.com</h1>
+<!-- Consulta os gastos no banco -->
 
-    <a href="<?php echo site_url('core/fullcalendar') ?>">Carregar</a>
+<div>
 
-    <div class="row" style="width:80%">
+  <form class="container" action="<?php echo site_url('core/consultaGasto'); ?>" method="post">
 
-      <div class="col-md-12">
+    <p>
+      Selecione o tipo de pesquisa e depois a referencia para pesquisa.
+    </p>
+    <!--
+    <p>
 
-        <div id="calendar"></div>
+      <select name="txtpesquisa" id="txtpesquisa">
 
-      </div>
+        <option value="desc">Descrição</option>
+        <option value="tgas">Tipo de Gasto</option>
+        <option value="data">Data</option>
+
+      </select>
+
+    </p>
+-->
+    <div class="container">
+
+      <input type="checkbox" id="descricao" name="descricao" checked>
+      <label for="descricao">Descrição</label>
+      <input type="text" id="desc" name="desc">
+    </div>
+
+    <div class=" container">
+
+      <input type="checkbox" id="tipogasto" name="tipogasto">
+      <label for="tgas">Tipo de Gasto</label>
 
     </div>
 
-  </div>
+    <div class="container">
+
+      <input type="checkbox" id="data" name="data">
+      <label for="dat">Data</label>
+
+    </div>
+
+    <button class="btn btn-info">Inserir</button>
+
+  </form>
 
 </div>
