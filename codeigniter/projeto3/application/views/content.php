@@ -2,6 +2,26 @@
 
   <h1>Controle de Gastos</h1>
   <hr>
+</div>
+
+<div>
+
+  <h2>Balanço</h2>
+
+  <div>
+
+
+
+  </div>
+
+
+</div>
+
+
+
+<hr>
+<hr>
+<div class="container">
   <h2>Inserir Gasto</h2>
 
   <form class="container" action="<?php echo site_url('core/inseregasto'); ?>" method="post">
@@ -94,7 +114,7 @@
             <label for="data">Data</label>
           </div>
           <div>
-            <input id="datatxt" name="datatxt" type="text">
+            <input id="datatxt" name="datatxt" placeholder="Ex: AAAA-MM-DD" type="text">
           </div>
 
         </div>
