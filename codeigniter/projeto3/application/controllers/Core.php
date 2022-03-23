@@ -13,6 +13,14 @@ class Core extends CI_Controller
     $this->load->view('layout/header');
   }
 
+  public function inserereceita()
+  {
+    $this->load->view('layout/header');
+    $this->load->model('model_base');
+    $this->model_base->inserereceita();
+    $this->load->view('layout/footer');
+  }
+
   public function inseregasto()
   {
     $this->load->view('layout/header');
