@@ -6,7 +6,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-3">
+    <div class="col-4">
       <h2>Cadastrar Receita</h2>
       <form class="container" action="<?php echo site_url('core/inserereceita'); ?>" method="post">
 
@@ -40,7 +40,7 @@
     </div>
 
 
-    <div class="col-3">
+    <div class="col-4">
       <h2>Cadastrar Gasto</h2>
 
       <form class="container" action="<?php echo site_url('core/inseregasto'); ?>" method="post">
