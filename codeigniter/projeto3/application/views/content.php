@@ -80,7 +80,6 @@
   </div>
 </div>
 
-
 <!-- Consulta os gastos no banco -->
 
 <div class="container">
