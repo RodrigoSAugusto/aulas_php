@@ -97,6 +97,7 @@
       <div class="row">
 
         <div class="col-3">
+
           <!-- Campo para pesquisar item por nome/descrição -->
 
           <div>
@@ -111,6 +112,7 @@
         </div>
 
         <div class="col-3">
+
           <!-- Campo para pesquisar item por "tipo" -->
 
           <div>
@@ -125,6 +127,7 @@
         </div>
 
         <div class="col-3">
+
           <!-- Campo para pesquisar item por data de incerção -->
 
           <div>

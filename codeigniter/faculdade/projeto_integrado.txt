@@ -1,0 +1,20 @@
+Tarefa 4:
+
+Qual a diferença entre Banco de dados relacionais e não relacionais? Cite as principais características 
+e diferenças entre cada um deles.
+
+Os bancos de dados relacionais armazenam dados de acordo com esquemas específicos. Por outro 
+lado, os sistemas MoSQL permitem que os dados sejam armazenados usando qualquer estrutura necessária, 
+mas fornece uma maneira de atualizar esses dados ao alterar essa estrutura.
+
+
+Tarefa 5:
+
+A maioria dos sistamas operacionais da atualidade utiliza o recurso chamado Memória Virtual. 
+Uma das funções da Memória Virtual é a paginação ou troca. Escreva o nome deste processo e 
+detalhe sobre ele.
+
+A paginação é um recurso utilizado pelo Sistema Operacional para ajudar no gerenciamento de 
+memória RAM, o sistema salva o programa em execução em um harquivo em disco e vai executando 
+partes deste software e pode trocar estas partes com outras e assim consegue executar programas 
+que exedem as capacidades de memórias RAM.
