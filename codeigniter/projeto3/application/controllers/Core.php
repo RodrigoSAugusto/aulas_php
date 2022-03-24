@@ -30,7 +30,6 @@ class Core extends CI_Controller
   }
 
   public function consultageral()
-
   {
     $this->load->view('layout/header');
     $this->load->model('model_base');
