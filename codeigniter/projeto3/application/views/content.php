@@ -4,6 +4,65 @@
   <hr>
 </div>
 
+
+<div>
+
+  <h2>Balanço</h2>
+
+  <div class="container">
+
+    <form class="container" action="<?php echo site_url('core/balancomensal'); ?>" method="post">
+      <div class="row">
+        <div class="col-3">
+          <p>Mês inicial:</p>
+          <select name="mes_inicio" id="mes_inicio" required>
+            <option value="2022-01">Janeiro</option>
+            <option value="2022-02">Fevereiro</option>
+            <option value="2022-03">Março</option>
+            <option value="2022-04">Abril</option>
+            <option value="2022-05">Maio</option>
+            <option value="2022-06">Junho</option>
+            <option value="2022-07">Julho</option>
+            <option value="2022-08">Agosto</option>
+            <option value="2022-09">Setembro</option>
+            <option value="2022-10">Outubro</option>
+            <option value="2022-11">Novembro</option>
+            <option value="2022-12">Dezembro</option>
+          </select>
+        </div>
+
+        <div class="col-3">
+          <p>Mês final:</p>
+          <select name="mes_fim" id="mes_fim" required>
+            <option value="2022-01">Janeiro</option>
+            <option value="2022-02">Fevereiro</option>
+            <option value="2022-03">Março</option>
+            <option value="2022-04">Abril</option>
+            <option value="2022-05">Maio</option>
+            <option value="2022-06">Junho</option>
+            <option value="2022-07">Julho</option>
+            <option value="2022-08">Agosto</option>
+            <option value="2022-09">Setembro</option>
+            <option value="2022-10">Outubro</option>
+            <option value="2022-11">Novembro</option>
+            <option value="2022-12">Dezembro</option>
+          </select>
+        </div>
+        <div class="col-3">
+
+          <button class="btn btn-info">Pesquisar</button>
+
+        </div>
+      </div>
+    </form>
+
+  </div>
+
+</div>
+
+<hr>
+<hr>
+
 <div class="container">
   <div class="row">
     <div class="col-4">

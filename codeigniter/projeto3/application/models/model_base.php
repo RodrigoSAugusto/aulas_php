@@ -3,9 +3,80 @@
 class Model_base extends CI_Model
 {
 
+  public function BalancoMensal()
+  {
+    // Este método gera um balanço dos gastos e receitas mensais e monta uma tabela.
+    // $data_inicio = $this->input->post('mes_inicio');
+    $data_fim    = $this->input->post('mes_fim');
+
+
+
+
+    //  $this->db->like('data', $data_inicio);
+    // $this->db->from('gastos');
+    // $valores_1 = $this->db->get();
+
+    $this->db->like('data', $data_fim);
+    $this->db->from('gastos');
+    $valores_2 = $this->db->get();
+
+
+
+    echo "<div class='container'>"
+      . "<table class='table table-bordered table-striped table-dark'>"
+      . "<thead><tr><th colspan='4'>Gastos</th></tr></thead>";
+
+    foreach ($valores_1->result() as $row) {
+      echo "<tfooter><tr><td colspan='3'>$row->nome</td>"
+        . "<td>$row->valor</td></tr></tfooter>";
+    }
+    foreach ($valores_2->result() as $row) {
+      echo "<tfooter><tr><td colspan='3'>$row->nome</td>"
+        . "<td>$row->valor</td></tr></tfooter>";
+    }
+
+    $this->db->like('data', $data_inicio);
+    $this->db->select_sum('valor');
+    $this->db->from('gastos');
+    $total = $this->db->get();
+
+    // Apresenta o valor da soma na tela
+    foreach ($total->result() as $row) {
+      echo "<tfooter><tr><td colspan='3'>Total</td>"
+        . "<td>$row->valor</td></tr></tfooter>"
+        . "</table></div><br>";
+    }
+
+    $this->db->like('data_receita', $data_inicio);
+    $this->db->from('receita');
+    $receita = $this->db->get();
+
+    echo "<div class='container'>"
+      . "<table class='table table-bordered table-striped table-dark'>"
+      . "<thead><tr><th colspan='4'>Receita</th></tr></thead>";
+
+    foreach ($receita->result() as $row) {
+      echo "<tfooter><tr><td colspan='3'>$row->data_receita</td>"
+        . "<td>$row->valor_receita</td></tr></tfooter>";
+    }
+
+    $this->db->like('data_receita', $data_inicio);
+    $this->db->select_sum('valor_receita');
+    $this->db->from('receita');
+    $total = $this->db->get();
+
+    // Apresenta o valor da soma na tela
+    foreach ($total->result() as $row) {
+      echo "<tfooter><tr><td colspan='3'>Total</td>"
+        . "<td>$row->valor_receita</td></tr></tfooter>"
+        . "</table></div><br>";
+    }
+  }
+
+
   public function InsereReceita()
   {
-    // Esta função gera um array associando os campos preenchidos pelo usuário com os campos correspondentes do banco. 
+    // Este método gera um array associando os campos preenchidos pelo usuário com os campos correspondentes do banco. 
     $receita = array(
       'descricao_receita'  => $this->input->post('des_receita'),
       'tipo_receita'       => $this->input->post('tip_receita'),
@@ -23,7 +94,7 @@ class Model_base extends CI_Model
 
   public function InsereGasto()
   {
-    // Esta função gera um array associando os campos preenchidos pelo usuário com os campos correspondentes do banco.
+    // Este método gera um array associando os campos preenchidos pelo usuário com os campos correspondentes do banco.
     $gasto = array(
       'nome'    => $this->input->post('txtnome'),
       'tipo'    => $this->input->post('txttipo'),
