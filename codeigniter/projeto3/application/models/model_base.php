@@ -6,42 +6,32 @@ class Model_base extends CI_Model
   public function BalancoMensal()
   {
     // Este método gera um balanço dos gastos e receitas mensais e monta uma tabela.
-    // $data_inicio = $this->input->post('mes_inicio');
+    $data_inicio = $this->input->post('mes_inicio');
     $data_fim    = $this->input->post('mes_fim');
-
-
-
-
-    //  $this->db->like('data', $data_inicio);
-    // $this->db->from('gastos');
-    // $valores_1 = $this->db->get();
-
-    $this->db->like('data', $data_fim);
-    $this->db->from('gastos');
-    $valores_2 = $this->db->get();
-
-
 
     echo "<div class='container'>"
       . "<table class='table table-bordered table-striped table-dark'>"
       . "<thead><tr><th colspan='4'>Gastos</th></tr></thead>";
 
+
+
+    $this->db->like('data', $data_inicio);
+    $this->db->from('gastos');
+    $valores_1 = $this->db->get();
+
     foreach ($valores_1->result() as $row) {
       echo "<tfooter><tr><td colspan='3'>$row->nome</td>"
         . "<td>$row->valor</td></tr></tfooter>";
     }
-    foreach ($valores_2->result() as $row) {
-      echo "<tfooter><tr><td colspan='3'>$row->nome</td>"
-        . "<td>$row->valor</td></tr></tfooter>";
-    }
+
 
     $this->db->like('data', $data_inicio);
     $this->db->select_sum('valor');
     $this->db->from('gastos');
-    $total = $this->db->get();
+    $total_gasto = $this->db->get();
 
     // Apresenta o valor da soma na tela
-    foreach ($total->result() as $row) {
+    foreach ($total_gasto->result() as $row) {
       echo "<tfooter><tr><td colspan='3'>Total</td>"
         . "<td>$row->valor</td></tr></tfooter>"
         . "</table></div><br>";
@@ -63,14 +53,29 @@ class Model_base extends CI_Model
     $this->db->like('data_receita', $data_inicio);
     $this->db->select_sum('valor_receita');
     $this->db->from('receita');
-    $total = $this->db->get();
+    $total_receita = $this->db->get();
 
     // Apresenta o valor da soma na tela
-    foreach ($total->result() as $row) {
+    foreach ($total_receita->result() as $row) {
       echo "<tfooter><tr><td colspan='3'>Total</td>"
         . "<td>$row->valor_receita</td></tr></tfooter>"
         . "</table></div><br>";
     }
+
+    $total_gas = $total_gasto->row();
+    $total_rec = $total_receita->row();
+
+    $balanco = $total_rec->valor_receita - $total_gas->valor;
+
+    echo "<div class='container'>"
+      . "<table class='table table-bordered table-striped table-dark'>"
+      . "<thead><tr><th colspan='4'>Balanco</th></tr></thead>"
+      . "<tfooter><tr><td colspan='3'>Total</td>"
+      . "<td>$balanco</td></tr></tfooter>"
+      . "</table></div><br>";
+
+
+    echo $balanco;
   }
 
 
