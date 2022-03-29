@@ -14,42 +14,48 @@ class Model_base extends CI_Model
       . "<thead><tr><th colspan='4'>Gastos</th></tr></thead>";
 
 
-
+    // Busca na tabela gastos do banco os dados correspondentes a data pesquisada.
     $this->db->like('data', $data_inicio);
     $this->db->from('gastos');
     $valores_1 = $this->db->get();
 
     foreach ($valores_1->result() as $row) {
-      echo "<tfooter><tr><td colspan='3'>$row->nome</td>"
+      echo "<tfooter><tr><td>$row->nome</td>"
+        . "<td>$row->data</td>"
+        . "<td>$row->tipo</td>"
         . "<td>$row->valor</td></tr></tfooter>";
     }
 
-
+    // Consulta a tabela receita e retorna a soma dos valores correspondentes com a pesquisa do usuário.
     $this->db->like('data', $data_inicio);
     $this->db->select_sum('valor');
     $this->db->from('gastos');
     $total_gasto = $this->db->get();
 
-    // Apresenta o valor da soma na tela
+    // Apresenta o valor da soma na tela.
     foreach ($total_gasto->result() as $row) {
       echo "<tfooter><tr><td colspan='3'>Total</td>"
         . "<td>$row->valor</td></tr></tfooter>"
         . "</table></div><br>";
     }
 
+    // Consulta a tabela receita e retorna os valores correspondentes aos pesquisados
     $this->db->like('data_receita', $data_inicio);
     $this->db->from('receita');
     $receita = $this->db->get();
 
+    // Aqui montamos o cabeçalho da tabela Receita
     echo "<div class='container'>"
       . "<table class='table table-bordered table-striped table-dark'>"
       . "<thead><tr><th colspan='4'>Receita</th></tr></thead>";
 
+    // E aqui montamos a iteração que constroi o corpo da tabela.
     foreach ($receita->result() as $row) {
       echo "<tfooter><tr><td colspan='3'>$row->data_receita</td>"
         . "<td>$row->valor_receita</td></tr></tfooter>";
     }
 
+    // Consulta a tabela receita e retorna a soma dos valores correspondentes com a pesquisa do usuário.
     $this->db->like('data_receita', $data_inicio);
     $this->db->select_sum('valor_receita');
     $this->db->from('receita');
@@ -62,11 +68,14 @@ class Model_base extends CI_Model
         . "</table></div><br>";
     }
 
+    // Populamos as variaveis com os resultados da query 
     $total_gas = $total_gasto->row();
     $total_rec = $total_receita->row();
 
+    // Aqui tiramos a diferença entre receita e os gastos para obter o balanço do mês.
     $balanco = $total_rec->valor_receita - $total_gas->valor;
 
+    // Aqui montamos uma tabela para exibir o valor do balanço.
     echo "<div class='container'>"
       . "<table class='table table-bordered table-striped table-dark'>"
       . "<thead><tr><th colspan='4'>Balanco</th></tr></thead>"

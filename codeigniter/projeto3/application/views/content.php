@@ -29,8 +29,10 @@
           <option value="2022-12">Dezembro</option>
         </select>
       </div>
-
-      <button class="btn btn-info">Pesquisar</button>
+      <br>
+      <div class="container">
+        <button class="btn btn-info">Pesquisar</button>
+      </div>
 
   </div>
   </form>
