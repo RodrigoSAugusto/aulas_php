@@ -145,7 +145,7 @@ class Model_base extends CI_Model
       $query = $this->db->get('gastos');
 
       echo "<table class='table table-bordered table-striped table-dark'>"; //Criamos a tabela
-      //Aqui criamos o cabeçalho da tabela.
+      // Aqui criamos o cabeçalho da tabela.
       // A tag <tr> abre uma linha, enquanto a <td> abre uma célula.
 
       echo "<thead><tr><td colspan='4'>Pesquisa por Descrição</td></tr>"
@@ -187,7 +187,7 @@ class Model_base extends CI_Model
       $query = $this->db->get('gastos');
 
       echo "<table class='table table-bordered table-striped table-dark'>"; //Criamos a tabela
-      //Aqui criamos o cabeçalho da tabela.
+      // Aqui criamos o cabeçalho da tabela.
       // A tag <tr> abre uma linha, enquanto a <td> abre uma célula.
       echo "<thead><tr><td colspan='4'>Pesquisa por Tipo de Gasto</td></tr>"
         . "<tr><th>Descrição</th>"

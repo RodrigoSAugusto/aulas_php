@@ -10,7 +10,7 @@ class Core extends CI_Controller
   {
     $this->load->view('layout/header');
     $this->load->view('content');
-    $this->load->view('layout/header');
+    $this->load->view('layout/footer');
   }
 
   public function balancomensal()
